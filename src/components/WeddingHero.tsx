@@ -1,53 +1,57 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Countdown from "./Countdown";
 import FloralDecor from "./FloralDecor";
 import { ANIMATION_START_DATE, WEDDING_DATE } from "../constants";
+import { useIsMobile } from "../hooks/use-mobile";
+// import Navigation from "./Navigation";
 
 const WeddingHero: React.FC = () => {
-  const [moveProgress, setMoveProgress] = useState(0);
+  const calculateProgress = useCallback(() => {
+    const now = new Date();
+
+    // If before animation start date, no movement
+    if (now < ANIMATION_START_DATE) {
+      return 0;
+    }
+
+    // If wedding day or after, fully together
+    if (now >= WEDDING_DATE) {
+      return 1;
+    }
+
+    // Calculate progress from Dec 1 to Jan 1
+    const totalDuration =
+      WEDDING_DATE.getTime() - ANIMATION_START_DATE.getTime();
+    const elapsed = now.getTime() - ANIMATION_START_DATE.getTime();
+
+    return Math.min(1, Math.max(0, elapsed / totalDuration));
+  }, []);
+
+  const [moveProgress, setMoveProgress] = useState(calculateProgress());
+  const isMobile = useIsMobile();
+
+  const updateMoveProgress = useCallback(() => {
+    setMoveProgress(calculateProgress());
+  }, [calculateProgress]);
 
   useEffect(() => {
-    const calculateProgress = () => {
-      const now = new Date();
-
-      // If before animation start date, no movement
-      if (now < ANIMATION_START_DATE) {
-        return 0;
-      }
-
-      // If wedding day or after, fully together
-      if (now >= WEDDING_DATE) {
-        return 1;
-      }
-
-      // Calculate progress from Dec 1 to Jan 1
-      const totalDuration =
-        WEDDING_DATE.getTime() - ANIMATION_START_DATE.getTime();
-      const elapsed = now.getTime() - ANIMATION_START_DATE.getTime();
-
-      return Math.min(1, Math.max(0, elapsed / totalDuration));
-    };
-
-    setMoveProgress(calculateProgress());
-
-    // Update every minute for smooth progression
     const timer = setInterval(() => {
-      setMoveProgress(calculateProgress());
+      updateMoveProgress();
     }, 60000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [updateMoveProgress]);
 
   // Calculate the offset - starts at 100% (far apart) and goes to 0% (together)
   const brideOffset = useMemo(() => {
-    const maxOffset = 100; // percentage - start further apart
+    const maxOffset = isMobile ? 50 : 100; // percentage - start further apart
     return -maxOffset * (1 - moveProgress);
-  }, [moveProgress]);
+  }, [moveProgress, isMobile]);
 
   const groomOffset = useMemo(() => {
-    const maxOffset = 100; // percentage - start further apart
+    const maxOffset = isMobile ? 50 : 100; // percentage - start further apart
     return maxOffset * (1 - moveProgress);
-  }, [moveProgress]);
+  }, [moveProgress, isMobile]);
 
   const isWeddingDay = moveProgress >= 1;
 
@@ -68,6 +72,9 @@ const WeddingHero: React.FC = () => {
       <FloralDecor position="bottom-left" />
       <FloralDecor position="bottom-right" />
 
+      {/* Navigation */}
+      {/* <Navigation /> */}
+
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-8">
         {/* Decorative divider */}
@@ -81,7 +88,7 @@ const WeddingHero: React.FC = () => {
         <div className="relative w-full max-w-4xl flex items-end justify-center mb-8 md:mb-12">
           {/* Groom - facing right */}
           <div
-            className="w-44 z-10 transition-transform duration-1000 ease-out"
+            className="w-44 z-10 transition-transform translate-y-5 duration-1000 ease-out"
             style={{
               transform: `translateX(${brideOffset + 30}%)`,
             }}
@@ -89,7 +96,7 @@ const WeddingHero: React.FC = () => {
             <img
               src="/bride.png"
               alt="Bride"
-              className="animate-float transition-transform"
+              className="animate-float transition-transform scale-95"
             />
           </div>
 
@@ -110,13 +117,13 @@ const WeddingHero: React.FC = () => {
             <img
               src="/groom.png"
               alt="Groom"
-              className="animate-float-delayed transition-transform"
+              className="animate-float-delayed transition-transform scale-105"
             />
           </div>
         </div>
 
         {/* Progress bar showing how close they are */}
-        {moveProgress > 0 && moveProgress < 1 && (
+        {moveProgress > 0 && moveProgress <= 1 && (
           <div className="w-full max-w-md mb-6">
             <div className="flex items-center justify-between mb-2">
               <span className="text-sm text-muted-foreground font-display">
@@ -131,7 +138,7 @@ const WeddingHero: React.FC = () => {
             </div>
             <div className="h-2 bg-muted rounded-full overflow-hidden">
               <div
-                className="h-full bg-linear-to-r from-gold to-primary rounded-full transition-all duration-1000"
+                className="h-full bg-linear-to-r from-gold-light to-primary rounded-full transition-all duration-1000"
                 style={{ width: `${moveProgress * 100}%` }}
               />
             </div>
