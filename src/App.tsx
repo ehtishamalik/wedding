@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound";
 import Mehndi from "./pages/Mehndi";
 import Barat from "./pages/Barat";
 import Walima from "./pages/Walima";
+import { Analytics } from "@vercel/analytics/next";
 
 const App = () => (
   <BrowserRouter>
@@ -15,6 +16,7 @@ const App = () => (
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
+    <Analytics />
   </BrowserRouter>
 );
 
