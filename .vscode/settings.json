@@ -1,0 +1,24 @@
+{
+  // Set Prettier as the default formatter for TypeScript and TSX files
+  "editor.defaultFormatter": "biomejs.biome",
+
+  // Enable format on save
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+
+  // Enable Prettier for specific languages
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+
+  // Use VSCode's built-in formatter for CSS files
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
+}
