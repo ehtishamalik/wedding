@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type React from "react";
+import { cn } from "@/lib/utils";
 import EventCountdown from "./EventCountdown";
 import FloatingHearts from "./FloatingHearts";
 import FloralDecor from "./FloralDecor";
@@ -60,8 +61,17 @@ const EventPage: React.FC<EventPageProps> = ({
         </div>
 
         {/* Couple illustrations */}
-        <div className="w-full max-w-3xl flex items-end justify-center mb-8">
-          <div className="w-44 h-72 relative">
+        <div className="w-full relative h-80 max-w-3xl flex items-end justify-center mb-8">
+          <div
+            className={cn(
+              "w-44 h-72 absolute top-1/2 left-1/2 -translate-y-[45%] z-10",
+              {
+                "-translate-x-full": eventName === "Mehndi",
+                "-translate-x-[70%]": eventName === "Barat",
+                "-translate-x-[65%]": eventName === "Walima",
+              },
+            )}
+          >
             <Image
               src="/bride.png"
               alt="Bride"
@@ -70,9 +80,18 @@ const EventPage: React.FC<EventPageProps> = ({
               fill
             />
           </div>
-          <div className="w-44 h-80 relative">
+          <div
+            className={cn(
+              "w-44 h-80 absolute top-1/2 left-1/2 -translate-y-1/2",
+              {
+                "translate-x-0": eventName === "Mehndi",
+                "-translate-x-[30%]": eventName === "Barat",
+                "-translate-x-[35%]": eventName === "Walima",
+              },
+            )}
+          >
             <Image
-              src="/groom.png"
+              src="/groom2.png"
               alt="Groom"
               className="animate-float-delayed"
               loading="eager"

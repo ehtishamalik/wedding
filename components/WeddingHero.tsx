@@ -98,7 +98,7 @@ const WeddingHero = () => {
             <Image
               src="/bride.png"
               alt="Bride"
-              className="animate-float transition-transform scale-95"
+              className="animate-float"
               width={180}
               height={300}
             />
@@ -119,9 +119,9 @@ const WeddingHero = () => {
             }}
           >
             <Image
-              src="/groom.png"
+              src="/groom2.png"
               alt="Groom"
-              className="animate-float-delayed transition-transform scale-105"
+              className="animate-float-delayed"
               width={180}
               height={300}
             />
