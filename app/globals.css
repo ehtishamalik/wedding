@@ -142,7 +142,7 @@
   }
 
   body {
-    font-family: "Lato", sans-serif;
+    font-family: var(--font-lato);
     @apply bg-background text-foreground  antialiased;
   }
 
@@ -152,7 +152,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Cormorant Garamond", serif;
+    font-family: var(--font-cormorant-garamond);
     font-optical-sizing: auto;
   }
 }

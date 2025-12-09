@@ -49,7 +49,7 @@ const EventPage: React.FC<EventPageProps> = ({
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-20">
         {/* Event name */}
-        <h1 className="font-display text-4xl md:text-6xl text-primary mb-8 text-center">
+        <h1 className="font-display text-4xl md:text-6xl xl:text-8xl text-primary mb-8 text-center">
           {eventName}
         </h1>
 
