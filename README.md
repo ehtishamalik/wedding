@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💍 Bride & Abdullah's Wedding
 
-## Getting Started
+> *"Two souls, one journey"* — and one unnecessarily over-engineered website to count down to it.
 
-First, run the development server:
+![Wedding Preview](./public/og-image.png)
+
+Welcome to the most romantic Next.js app you'll ever clone. Built with love (and Tailwind) to celebrate the wedding of **Bride and Abdullah** on **December 12, 2026** 🎉
+
+---
+
+## ✨ What's inside
+
+- 💒 **Hero page** with animated bride & groom illustrations that slowly walk *towards each other* as the wedding day approaches. Yes, really.
+- ⏳ **Live countdown** ticking down to the big day, second by second
+- 📊 **Progress bar** — because "% closer to forever" is a valid metric
+- 🌸 **Three event pages** for the full desi wedding experience:
+  - **Mehndi** — Dec 31, 2025 @ Mashallah Marquee
+  - **Barat** — Jan 1, 2026 @ Syed Pak
+  - **Walima** — Jan 2, 2026 @ Moon Light Marquee
+- 💕 Floating hearts, sparkles, and floral corners — because subtlety is overrated
+
+---
+
+## 🚀 Running it locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) and watch the couple inch closer together.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠 Tech stack
 
-## Learn More
+| Thing | Why |
+|---|---|
+| [Next.js 16](https://nextjs.org) | The framework that shall not be questioned |
+| [React 19](https://react.dev) | Fresh off the press |
+| [Tailwind CSS 4](https://tailwindcss.com) | Because writing CSS is for the brave |
+| [Biome](https://biomejs.dev) | Linting & formatting, the fast way |
+| [TypeScript](https://www.typescriptlang.org) | So the bugs have types |
+| [Bun](https://bun.sh) | Fast. Very fast. |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/
+├── page.tsx          # Main hero with countdown & walking couple
+├── mehndi/           # Mehndi event page
+├── barat/            # Barat event page
+└── walima/           # Walima event page
+components/
+├── WeddingHero.tsx   # The animated couple magic
+├── Countdown.tsx     # Tick tock tick tock
+├── EventPage.tsx     # Shared event details layout
+└── ...               # Flowers, hearts, and more
+constants/
+└── index.ts          # The all-important wedding date lives here
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Made with 💛 for the couple. May your marriage be as bug-free as this code... mostly.*

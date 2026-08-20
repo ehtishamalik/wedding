@@ -4,12 +4,12 @@ const Barat = () => {
   return (
     <EventPage
       eventName="Barat"
-      eventDate={new Date("2026-01-01T18:00:00")}
+      eventDate={new Date("2026-12-11T17:00:00")}
       details={{
-        date: "January 1, 2026",
+        date: "December 11, 2026",
         time: "5:00 PM onwards",
-        venue: "",
-        address: "Main Bazar Syed Pak, Street Jamia Masjid Noor-e-Madina",
+        venue: "The Golden Pavilion",
+        address: "7 Rosepetal Avenue, Cloud Nine 🌸",
       }}
     />
   );

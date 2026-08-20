@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { useCallback, useEffect, useState } from "react";
+
 import { FORMATTED_WEDDING_DATE, WEDDING_DATE } from "../constants";
 
 interface TimeLeft {
@@ -12,14 +13,11 @@ interface TimeLeft {
 }
 
 const Countdown: React.FC = () => {
-  const [isWeddingDay, setIsWeddingDay] = useState(false);
-
-  const calculateTimeLeft = useCallback(() => {
+  const calculateTimeLeft = useCallback((): TimeLeft => {
     const now = new Date();
     const difference = WEDDING_DATE.getTime() - now.getTime();
 
     if (difference <= 0) {
-      setIsWeddingDay(true);
       return { days: 0, hours: 0, minutes: 0, seconds: 0 };
     }
 
@@ -31,7 +29,7 @@ const Countdown: React.FC = () => {
     };
   }, []);
 
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -40,6 +38,12 @@ const Countdown: React.FC = () => {
 
     return () => clearInterval(timer);
   }, [calculateTimeLeft]);
+
+  const isWeddingDay =
+    timeLeft.days === 0 &&
+    timeLeft.hours === 0 &&
+    timeLeft.minutes === 0 &&
+    timeLeft.seconds === 0;
 
   if (isWeddingDay) {
     return (

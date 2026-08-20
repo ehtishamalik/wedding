@@ -14,9 +14,9 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Rimsha Weds Ehtisham",
+  title: "Bride Weds Abdullah",
   description:
-    "Join us in celebrating the wedding of Rimsha and Ehtisham on January 01, 2026.",
+    "Join us in celebrating the wedding of Bride and Abdullah on December 12, 2026.",
 };
 
 export default function RootLayout({
