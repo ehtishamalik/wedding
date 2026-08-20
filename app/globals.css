@@ -143,7 +143,7 @@
 
   body {
     font-family: var(--font-lato);
-    @apply bg-background text-foreground  antialiased;
+    @apply bg-background text-foreground antialiased;
   }
 
   h1,

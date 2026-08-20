@@ -5,7 +5,7 @@ import EventCountdown from "./EventCountdown";
 import FloatingHearts from "./FloatingHearts";
 import FloralDecor from "./FloralDecor";
 
-// import Navigation from "./Navigation";
+import Navigation from "./Navigation";
 
 interface EventDetails {
   date: string;
@@ -44,7 +44,7 @@ const EventPage: React.FC<EventPageProps> = ({
       <FloralDecor position="bottom-right" />
 
       {/* Navigation */}
-      {/* <Navigation /> */}
+      <Navigation />
 
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-20">
@@ -64,11 +64,11 @@ const EventPage: React.FC<EventPageProps> = ({
         <div className="w-full relative h-80 max-w-3xl flex items-end justify-center mb-8">
           <div
             className={cn(
-              "w-44 h-72 absolute top-1/2 left-1/2 -translate-y-[45%] z-10",
+              "w-44 h-72 absolute top-1/2 left-1/2 translate-y-[-45%] z-10",
               {
                 "-translate-x-full": eventName === "Mehndi",
-                "-translate-x-[70%]": eventName === "Barat",
-                "-translate-x-[65%]": eventName === "Walima",
+                "translate-x-[-70%]": eventName === "Barat",
+                "translate-x-[-65%]": eventName === "Walima",
               },
             )}
           >
@@ -85,8 +85,8 @@ const EventPage: React.FC<EventPageProps> = ({
               "w-44 h-80 absolute top-1/2 left-1/2 -translate-y-1/2",
               {
                 "translate-x-0": eventName === "Mehndi",
-                "-translate-x-[30%]": eventName === "Barat",
-                "-translate-x-[35%]": eventName === "Walima",
+                "translate-x-[-30%]": eventName === "Barat",
+                "translate-x-[-35%]": eventName === "Walima",
               },
             )}
           >
