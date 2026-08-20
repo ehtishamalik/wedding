@@ -14,9 +14,9 @@ Welcome to the most romantic Next.js app you'll ever clone. Built with love (and
 - ⏳ **Live countdown** ticking down to the big day, second by second
 - 📊 **Progress bar** — because "% closer to forever" is a valid metric
 - 🌸 **Three event pages** for the full desi wedding experience:
-  - **Mehndi** — Dec 31, 2025 @ Mashallah Marquee
-  - **Barat** — Jan 1, 2026 @ Syed Pak
-  - **Walima** — Jan 2, 2026 @ Moon Light Marquee
+  - **Mehndi** — Dec 11, 2026 @ The Moonlit Garden
+  - **Barat** — Dec 12, 2026 @ The Golden Pavilion
+  - **Walima** — Dec 13, 2026 @ Enchanted Terrace & Blooms
 - 💕 Floating hearts, sparkles, and floral corners — because subtlety is overrated
 
 ---
